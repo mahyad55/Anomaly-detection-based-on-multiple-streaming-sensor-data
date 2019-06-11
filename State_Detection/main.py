@@ -54,6 +54,7 @@ def Data2_Print(stats = [], minmaxIdx_global = []):
         k = k +1
     print('%d    ' %k, '[%5d' %(minmaxIdx_global[minmaxIdx_global.__len__()-1]),'%5d]' %(data.__len__()), '    %5.4f' %stats[stats.__len__()-1][0], '   %5.4f' %stats[stats.__len__()-1][1])
     '''
+    
 def Data4_Print(stats = [], minmaxIdx_global = []):
     print('Num         Time\t     Range\t    Local_min-Start\t   Max-Min\t    Mean')
     k = 0
@@ -75,6 +76,7 @@ def Data4_Print(stats = [], minmaxIdx_global = []):
     plt.plot(data)
     plt.plot(1.0 * minmax_global * max(data), 'r')
     plt.show()
+    
 
 def Data10_Print(stats = [], minmaxIdx_global = []):
     print('Num         Time\t     Range\t \t    End-Local_min\t  Max-Min\t   Mean\t    Stdv')
@@ -99,7 +101,8 @@ def Data10_Print(stats = [], minmaxIdx_global = []):
     plt.plot(data)
     plt.plot(1.0 * minmax_global * max(data), 'r')
     plt.show()
-
+    
+    
 '''
 minmaxIdx_global = []
 minmax_global = np.zeros(50000)
@@ -122,7 +125,6 @@ with open('Data2_prey.csv') as csvfile:
             (stats,minmaxIdx_local) = AnalyzeEdges.AnalyzeEdges(seq,index,phi)
                 #if(ref.__len__()>0):
                     #print(ref)
-
                 #print(H.t_start,H.t_end)
             for element in minmaxIdx_local:
                #print(element)
@@ -211,6 +213,10 @@ data = data.astype(np.float)
 stats = Data_Merit.Data10_Merit(data, minmaxIdx_global)
 Data10_Print(stats, minmaxIdx_global)
 Divide_stats = Divide_stats.Data10_Divide_stats(stats)
+
+
+#the time of data read is very long, so to save time, after the minmaxIdx_global result, just put it in this set.
+#And can choose to presnt the result of Data set 2/4/10. Here is the result of data 10.
 
 
 
